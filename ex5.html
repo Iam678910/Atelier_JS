@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const notes = [];
+for (let i = 0; i < 5; i++) {
+  const saisie = prompt('Entrez la note n° ', i + 1 , ' : ');
+  const note = parseFloat(saisie);
+  notes.push(note);
+}
+
+console.log("Tableau des notes saisies :", notes);
+
+// FONCTION CLASSIQUE
+function calculerMoyenne(tableauDeNotes) {
+  let somme = 0;
+  let nombreDeNotesValides = 0;
+
+  for (const note of tableauDeNotes) {
+    if (isNaN(note) || note < 0) {
+      console.error('Erreur : La valeur ', note ,' est invalide et sera ignorée.');
+      continue;
+    }
+    if (note > 20) {
+        console.error('Note doit etre entre 0 et 20');
+        break;
+    }
+
+    somme += note;
+    nombreDeNotesValides++;
+  }
+
+  if (nombreDeNotesValides === 0) {
+    return 0;
+  }
+
+  return somme / nombreDeNotesValides;
+}
+const moyenneClassique = calculerMoyenne(notes);
+console.log('(Fonction classique) La moyenne est : ',moyenneClassique);
+
+// FOCTION FLECHE
+const calculerMoyenneFlechee = (tableauDeNotes) => {
+  let somme = 0;
+  let nombreDeNotesValides = 0;
+
+  for (const note of tableauDeNotes) {
+    if (isNaN(note) || note < 0) {
+      console.error('Erreur : La valeur ', note ,' est invalide et sera ignorée.');
+      continue;
+    }
+    if (note > 20) {
+        console.error('Note doit etre entre 0 et 20');
+        break;
+    }
+
+    somme += note;
+    nombreDeNotesValides++;
+  }
+
+  if (nombreDeNotesValides === 0) {
+    return 0;
+  }
+
+  return somme / nombreDeNotesValides;
+};
+const moyenneFlechee = calculerMoyenneFlechee(notes);
+console.log('(Fonction fléchée) La moyenne est : ', moyenneFlechee);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 3 - Table de multiplication</title>
+</head>
+<body>
+<script>
+  let nombre = Number(prompt("Entrez un nombre :"));
+
+  for (let i = 1; i <= 10; i++) {
+    let resultat = nombre * i;
+
+    // Ignorer les résultats impairs
+    if (resultat % 2 !== 0) {
+      continue;
+    }
+
+    console.log(`${nombre} x ${i} = ${resultat}`);
+  }
+</script>
+</body>
+</html>

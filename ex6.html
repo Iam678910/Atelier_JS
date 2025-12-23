@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const catalogue = [
+  { nom: "Livre", prix: 15, quantite: 30 },
+  { nom: "Stylo", prix: 2, quantite: 150 },
+  { nom: "Cahier", prix: 5, quantite: 75 },
+  { nom: "Gomme", prix: 1, quantite: 80}
+];
+
+function afficherProduits(listeProduits) {
+  console.log("--- Catalogue de produits ---");
+  for (const produit of listeProduits) {
+    console.log('Nom: ',produit.nom, ' Prix: ', produit.prix, ' Quantité: ' ,produit.quantite);
+  }
+}
+
+function vendreProduit(nomProduit, quantiteVendue) {
+  const produit = catalogue.find(p => p.nom === nomProduit);
+
+  if (!produit) {
+    console.error('Erreur : Le produit' ,nomProduit, 'n\'a pas été trouvé.');
+    return;
+  }
+
+  if (produit.quantite < quantiteVendue) {
+    console.error('Erreur : Stock insuffisant pour ',nomProduit,'. Requis: ',quantiteVendue, 'Disponible: ',produit.quantite);
+    return;
+  }
+
+  produit.quantite -= quantiteVendue; 
+  console.log('Vente réussie : ',quantiteVendue, 'x' ,nomProduit,'. Nouveau stock : ',produit.quantite);
+}
+    </script>
+</body>
+</html>

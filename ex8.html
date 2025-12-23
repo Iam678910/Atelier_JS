@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice8:JSON</title>
+</head>
+<body>
+  <input type="text" id="name" placeholder="Entrez ton nom">
+  <input type="number" id="age" placeholder="Entrez ton âge">
+  <input type="text" id="hobbies" placeholder="Entrez tes hobbies (séparés par des virgules)">
+  <button onclick="enregistrer()">Enregistrement</button>
+
+  <script>
+    function enregistrer() {
+      let name = document.getElementById("name").value;
+      let age = document.getElementById("age").value;
+      let hobbies = document.getElementById("hobbies").value.split(",");
+
+      
+      let info = {
+        name: name,
+        age: age,
+        hobbies: hobbies
+      };
+
+      
+      let infoString = JSON.stringify(info);
+      console.log("JSON string :", infoString);
+
+      
+      let infoParse = JSON.parse(infoString);
+      console.log("Objet parsé :", infoParse);
+    }
+  </script>
+</body>
+</html>

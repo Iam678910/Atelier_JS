@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title> Mot de passe</title>
+</head>
+<body>
+<script>
+  let motDePasse;
+
+  while (true) {
+    motDePasse = prompt("Entrez un mot de passe (ou tapez 'exit' pour quitter) :");
+
+    if (motDePasse === "exit") {
+      alert("Programme terminé.");
+      break;
+    }
+
+    let longueur = motDePasse.length;
+
+    if (longueur < 8) {
+      alert("Force du mot de passe : faible");
+    } else if (longueur >= 8 && longueur <= 12) {
+      alert("Force du mot de passe : moyen");
+    } else {
+      alert("Force du mot de passe : fort");
+    }
+  }
+</script>
+</body>
+</html>

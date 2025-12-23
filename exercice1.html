@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Réduction</title>
+</head>
+<body>
+<script>
+  let montant = Number(prompt("Entrez le montant de vos achats en Dh :"));
+  let reduction = 0;
+
+  let tranche;
+  if (montant < 100) {
+    tranche = "moins100";
+  } else if (montant >= 100 && montant <= 500) {
+    tranche = "entre100et500";
+  } else {
+    tranche = "plus500";
+  }
+
+  switch (tranche) {
+    case "moins100":
+      reduction = montant * 0.05;
+      break;
+    case "entre100et500":
+      reduction = montant * 0.10;
+      break;
+    case "plus500":
+      reduction = montant * 0.20;
+      break;
+  }
+
+  total = montant - reduction;
+  console.log(`(Switch) Pour un montant de ${montant}Dh, votre réduction est de ${reduction}Dh et le total est ${total}Dh.`);
+</script>
+</body>
+</html>
